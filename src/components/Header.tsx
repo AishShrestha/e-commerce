@@ -37,10 +37,10 @@ function Header() {
         <Link to="" className="py-2 md:py-0 hover:underline ">
           Cart
         </Link>
-        <Link to="" className="py-2 md:py-0 hover:underline">
+        <Link to="/login" className="py-2 md:py-0 hover:underline">
           Login
         </Link>
-        <Link to="" className="py-2 md:py-0 hover:underline">
+        <Link to="/signup" className="py-2 md:py-0 hover:underline">
           Signup
         </Link>
       </div>

@@ -11,6 +11,8 @@ import {
 import Home from "./pages/Home.tsx";
 import AllProducts from "./pages/AllProducts.tsx";
 import CategoryProducts from "./pages/CategoryProducts.tsx";
+import Login from "./components/Login.tsx";
+import Signup from "./components/Signup.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +22,8 @@ const router = createBrowserRouter(
       <Route path="mens" element={<CategoryProducts category="Mens" />} />
       <Route path="womens" element={<CategoryProducts category="Womens" />} />
       <Route path="kids" element={<CategoryProducts category="Kids" />} />
-      {/* <Route path="/login" element={<LoginPage />} /> */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
     </Route>
   )
 );
