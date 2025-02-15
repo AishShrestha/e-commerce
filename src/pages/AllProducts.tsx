@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Card from "../components/Card";
 
@@ -30,7 +31,13 @@ function AllProducts() {
       <h1 className="text-3xl font-bold font-mono m-auto mt-10 p-6">{title}</h1>
       <div className="h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         {products.map((product) => (
-          <Card key={product.id} post={product} />
+          <Link
+            key={product.id}
+            to={`/${title.toLowerCase()}/${product.id}`}
+            className="transition-transform hover:scale-105"
+          >
+            <Card post={product} />
+          </Link>
         ))}
       </div>
       <div className="flex justify-center mb-8">

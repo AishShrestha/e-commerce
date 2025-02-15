@@ -1,5 +1,6 @@
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
+import { Link } from "react-router-dom";
 
 function CategoryProducts({ category }: { category: string }) {
   const products = [
@@ -48,7 +49,13 @@ function CategoryProducts({ category }: { category: string }) {
       </h1>
       <div className="h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         {products.map((product) => (
-          <Card key={product.id} post={product} />
+          <Link
+            key={product.id}
+            to={`/${category.toLowerCase()}/${product.id}`}
+            className="transition-transform hover:scale-105"
+          >
+            <Card post={product} />
+          </Link>
         ))}
       </div>
       <Pagination
