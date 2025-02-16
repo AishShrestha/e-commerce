@@ -34,7 +34,7 @@ function Header() {
           isOpen ? "flex" : "hidden"
         } md:flex`}
       >
-        <Link to="" className="py-2 md:py-0 hover:underline ">
+        <Link to="/cart" className="py-2 md:py-0 hover:underline ">
           Cart
         </Link>
         <Link to="/login" className="py-2 md:py-0 hover:underline">

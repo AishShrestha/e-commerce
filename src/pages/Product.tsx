@@ -1,8 +1,13 @@
 import { useParams } from "react-router-dom";
 import Button from "../components/Button";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../feature/cartSlice";
 
 function Product() {
   const { id } = useParams();
+  const dispatch = useDispatch();
+
+  if (!id) throw new Error("Product ID is required");
 
   // This would typically come from an API or props
   const product = {
@@ -50,7 +55,20 @@ function Product() {
           <p className="text-gray-600">{product.description}</p>
 
           <div className="space-y-4">
-            <Button className="w-full bg-black text-white py-4" to="">
+            <Button
+              className="w-full bg-black text-white py-4"
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    id: product.id,
+                    name: product.title,
+                    price: product.price,
+                    imageUrl: product.imageUrl,
+                  })
+                )
+              }
+              to=""
+            >
               Add to Cart
             </Button>
             <Button className="w-full border border-black py-4" to="">

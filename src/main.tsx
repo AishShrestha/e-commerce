@@ -14,7 +14,10 @@ import CategoryProducts from "./pages/CategoryProducts.tsx";
 import Login from "./components/Login.tsx";
 import Signup from "./components/Signup.tsx";
 import Product from "./pages/Product.tsx";
-import Cart from "./pages/Cart.tsx";
+
+import { Provider } from "react-redux";
+import { store } from "./store/store.ts";
+import ProductCard from "./pages/Cart.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,13 +41,15 @@ const router = createBrowserRouter(
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      {/* <Route path="cart" element={<Cart />} /> */}
+      <Route path="cart" element={<ProductCard />} />
     </Route>
   )
 );
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );
